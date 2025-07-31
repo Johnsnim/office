@@ -1,0 +1,14 @@
+@mixin time-label($pos, $time) {
+  &:nth-child(#{$pos}) {
+    &::after {
+      content: $time;
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.6rem;
+      color: #6c757d;
+      font-weight: 500;
+    }
+  }
+}

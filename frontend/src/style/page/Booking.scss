@@ -1,0 +1,151 @@
+@import "../mixin";
+
+.Booking-Page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: #f0f2f5;
+  min-height: 80vh;
+}
+
+.Booking-Card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+
+  .Room-Title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .Room-Description {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 1.75rem;
+  }
+
+  .Date-Row,
+  .Time-Row,
+  .Meeting-Row {
+    text-align: left;
+    margin-bottom: 1rem;
+
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+    }
+
+    input[type="date"],
+    input[type="text"] {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.95rem;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      outline: none;
+      box-sizing: border-box;
+    }
+  }
+
+  .TimeBar {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2px;
+    padding: 0.25rem 0;
+    margin-top: 1rem;
+    overflow: visible;
+  }
+
+  .TimeSlot {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: #e3e9ed;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    @include time-label(1, "9AM");
+    @include time-label(7, "12PM");
+    @include time-label(13, "3PM");
+    @include time-label(18, "6PM");
+
+    &:hover {
+      background: #cfd9df;
+    }
+
+    &.selected {
+      background-color: #4c8f7d;
+    }
+
+    &.disabled {
+      background-color: #ff9a9a;
+      cursor: not-allowed;
+    }
+
+    .Tooltip {
+      position: absolute;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      background: #333;
+      color: #fff;
+      padding: 3px 6px;
+      border-radius: 4px;
+      bottom: -32px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.9;
+      z-index: 2;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 5px solid transparent;
+        border-bottom-color: #333;
+      }
+    }
+  }
+
+  .SelectedTime {
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #2f2f2f;
+    min-height: 1.2rem;
+  }
+
+  .Submit-Button {
+    width: 100%;
+    background: #4c8f7d;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.8rem 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:disabled {
+      background: #c0c9d0;
+      cursor: not-allowed;
+    }
+
+    &:hover:enabled {
+      background: #3a7364;
+    }
+  }
+}

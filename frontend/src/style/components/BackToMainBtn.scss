@@ -1,0 +1,14 @@
+.Room-Back {
+  top: 10px;
+  right: 15px;
+  position: absolute;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #3a3a3a;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(0.95);
+  }
+}

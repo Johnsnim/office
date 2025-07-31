@@ -1,0 +1,140 @@
+.Admin-Page {
+  font-family: "Pretendard", sans-serif;
+  color: #333;
+
+  .Admin-Header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    position: relative;
+
+    .Admin-Title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      color: #1c1c1e;
+    }
+
+    .Admin-SubTitle {
+      font-size: 0.95rem;
+      color: #6c757d;
+      margin-bottom: 1.25rem;
+    }
+
+    .Admin-Button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #3478f6;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: #2863cc;
+      }
+    }
+  }
+
+  .Room-Select-Wrapper {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+    padding: 0.4rem 0;
+    margin-bottom: 0.4rem;
+    label {
+      font-weight: 500;
+      margin-right: 0.5rem;
+    }
+
+    select {
+      padding: 0.4rem 0.6rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+
+      &:hover {
+        border-color: #666;
+      }
+    }
+  }
+
+  .Admin-RoomCard {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 1.2rem;
+    border-radius: 12px;
+
+    .Admin-RoomName {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 0 0 0.9rem 0;
+    }
+
+    .Admin-EmptyRes {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem 0;
+
+      color: #777;
+      font-style: italic;
+    }
+
+    .Admin-ReservationList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      .Admin-ReservationItem {
+        display: flex;
+        flex-direction: column;
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+
+        span {
+          margin-bottom: 0.3rem;
+        }
+
+        .Res-Title {
+          font-weight: 600;
+        }
+
+        .Res-User,
+        .Res-Time {
+          color: #555;
+          font-size: 0.95rem;
+        }
+
+        .Res-DeleteBtn {
+          margin-top: 0.8rem;
+          align-self: flex-start;
+          padding: 0.2rem 0;
+          width: 100%;
+          font-size: 0.9rem;
+          color: #fff;
+          background-color: #e74c3c;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: background-color 0.2s ease;
+
+          &:hover {
+            cursor: pointer;
+            background-color: #c0392b;
+          }
+        }
+      }
+    }
+  }
+}
