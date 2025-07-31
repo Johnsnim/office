@@ -5,7 +5,9 @@ services:
     plan: free
     region: singapore
     dockerContext: ./frontend
-    dockerfilePath: Dockerfile
+    dockerfilePath: ./frontend/Dockerfile
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
     envVars:
       - key: NODE_ENV
         value: production
@@ -16,9 +18,10 @@ services:
     plan: free
     region: singapore
     dockerContext: ./backend
-    dockerfilePath: Dockerfile
+    dockerfilePath: ./backend/Dockerfile
+    startCommand: node server.js
     envVars:
       - key: MONGO_URI
         sync: false
       - key: JWT_SECRET
-        value: false
+        sync: false
