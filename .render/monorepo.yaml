@@ -1,0 +1,5 @@
+services:
+  office-frontend:
+    rootDir: frontend
+  office-backend:
+    rootDir: backend
