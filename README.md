@@ -57,9 +57,6 @@ Figma를 통해 사전 와이어프레임을 제작하고,
 
 ---
 
-## ⚙️ 프로젝트 실행 방법
-
-
 
 ## 🧠 설계 내용 및 고민한 점
 
@@ -86,3 +83,13 @@ Figma를 통해 사전 와이어프레임을 제작하고,
 Date-fns 라이브러리를 적용해 명확하게 시간을 포맷팅하면서도 코드를 간략하게 줄일 수 있었습니다. 
 
 
+## ⚙️ 프로젝트 실행 방법
+
+### 로컬 : 
+office/frontend, office/backend 각각 'npm start'로 구동 
+
+### Docker : 
+office에서 'docker-compose up --build'로 구동
+
+### 공통 : 
+.env.example 파일을 .env로 변경 후 유효한 MONGO_URI로 대체
