@@ -6,8 +6,6 @@ services:
     region: singapore
     dockerContext: ./frontend
     dockerfilePath: ./frontend/Dockerfile
-    buildCommand: npm install && npm run build
-    startCommand: npm run start
     envVars:
       - key: NODE_ENV
         value: production
@@ -19,7 +17,6 @@ services:
     region: singapore
     dockerContext: ./backend
     dockerfilePath: ./backend/Dockerfile
-    startCommand: node server.js
     envVars:
       - key: MONGO_URI
         sync: false
