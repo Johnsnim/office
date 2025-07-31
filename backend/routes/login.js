@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
         userName: user.userName,
         role: user.role,
       },
-      process.env.JWT_SECRET || "default_secret",
+      process.env.JWT_SECRET || "secret",
       {
         expiresIn: "1h",
       }
