@@ -85,6 +85,9 @@ Date-fns 라이브러리를 적용해 명확하게 시간을 포맷팅하면서�
 
 ## ⚙️ 프로젝트 실행 방법
 
+### 배포 : 
+https://office-frontend-j9yt.onrender.com/
+
 ### 로컬 : 
 office/frontend, office/backend 각각 'npm start'로 구동 
 
@@ -93,3 +96,13 @@ office에서 'docker-compose up --build'로 구동
 
 ### 공통 : 
 .env.example 파일을 .env로 변경 후 유효한 MONGO_URI로 대체
+
+### 계정 :
+
+| 역할     | 아이디       | 비밀번호         |
+|----------|--------------|------------------|
+| 관리자   | `adminid`    | `adminpassword`  |
+| 일반 사용자 | `user1id`    | `user1password`  |
+| 일반 사용자 | `user2id`    | `user2password`  |
+
+
