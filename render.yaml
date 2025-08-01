@@ -17,7 +17,7 @@ services:
     plan: free
     region: singapore
     rootDir: backend
-    dockerContext: .
+    dockerContext: ./backend
     dockerfilePath: Dockerfile
     envVars:
       - key: MONGO_URI
