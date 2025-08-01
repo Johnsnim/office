@@ -5,7 +5,7 @@ services:
     plan: free
     region: singapore
     rootDir: frontend
-    dockerContext: .
+    dockerContext: ./frontend
     dockerfilePath: Dockerfile
     envVars:
       - key: NODE_ENV
@@ -17,7 +17,7 @@ services:
     plan: free
     region: singapore
     rootDir: backend
-    dockerContext: ./backend
+    dockerContext: .
     dockerfilePath: Dockerfile
     envVars:
       - key: MONGO_URI
