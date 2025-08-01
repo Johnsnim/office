@@ -21,6 +21,7 @@ interface Room {
 }
 
 const Booking: React.FC = () => {
+  const baseURL = process.env.REACT_APP_API_BASE_URL;
   const navigate = useNavigate();
   const { roomId } = useParams();
   const [room, setRoom] = useState<Room | null>(null);
@@ -33,7 +34,7 @@ const Booking: React.FC = () => {
   >({});
 
   const storedUser = localStorage.getItem("user");
-  const userName = storedUser ? JSON.parse(storedUser).name : "홍길동";
+  const userName = storedUser ? JSON.parse(storedUser).name : "비로그인";
 
   const timeSlots = Array.from({ length: 18 }, (_, i) => i);
 
@@ -124,7 +125,7 @@ const Booking: React.FC = () => {
     );
 
     try {
-      await axios.post(`http://localhost:5000/api/rooms/${roomId}/reserve`, {
+      await axios.post(`${baseURL}/api/rooms/${roomId}/reserve`, {
         start: start.toISOString(),
         end: end.toISOString(),
         title: meetingTitle,
@@ -135,7 +136,7 @@ const Booking: React.FC = () => {
       setSelectedSlots([]);
       setMeetingTitle("");
 
-      const res = await axios.get(`http://localhost:5000/api/rooms/${roomId}`);
+      const res = await axios.get(`${baseURL}/api/rooms/${roomId}`);
       setRoom(res.data);
       updateDisabledSlots(res.data.reservations, selectedDate);
     } catch (error) {
@@ -147,7 +148,7 @@ const Booking: React.FC = () => {
   useEffect(() => {
     if (!roomId) return;
 
-    axios.get(`http://localhost:5000/api/rooms/${roomId}`).then((res) => {
+    axios.get(`${baseURL}/api/rooms/${roomId}`).then((res) => {
       setRoom(res.data);
       updateDisabledSlots(res.data.reservations, selectedDate);
     });

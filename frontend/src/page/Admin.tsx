@@ -20,13 +20,15 @@ interface Room {
 }
 
 const Admin: React.FC = () => {
+  const baseURL = process.env.REACT_APP_API_BASE_URL;
+
   const navigate = useNavigate();
   const [rooms, setRooms] = useState<Room[]>([]);
   const [selectedRoomId, setSelectedRoomId] = useState<string>("");
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
 
   const fetchData = async () => {
-    const res = await axios.get("http://localhost:5000/api/rooms");
+    const res = await axios.get(`${baseURL}/api/rooms`);
     setRooms(res.data);
     if (res.data.length > 0) {
       setSelectedRoomId(res.data[0]._id);
@@ -36,9 +38,7 @@ const Admin: React.FC = () => {
 
   const handleDelete = async (roomId: number, reservationId: string) => {
     try {
-      await axios.delete(
-        `http://localhost:5000/api/rooms/${roomId}/reservations/${reservationId}`
-      );
+      await axios.delete(`${baseURL}/${roomId}/reservations/${reservationId}`);
       alert("예약 삭제 완료!");
       fetchData();
     } catch (err) {

@@ -19,6 +19,7 @@ interface Room {
 }
 
 const MyPage: React.FC = () => {
+  const baseURL = process.env.REACT_APP_API_BASE_URL;
   const [rooms, setRooms] = useState<Room[]>([]);
   const [selectedRoomId, setSelectedRoomId] = useState<string>("");
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
@@ -26,7 +27,7 @@ const MyPage: React.FC = () => {
   const currentUserName = storedUser ? JSON.parse(storedUser).name : "";
 
   const fetchData = async () => {
-    const res = await axios.get("http://localhost:5000/api/rooms");
+    const res = await axios.get(`${baseURL}/api/rooms`);
     setRooms(res.data);
     if (res.data.length > 0) {
       setSelectedRoomId(res.data[0]._id);
@@ -37,7 +38,7 @@ const MyPage: React.FC = () => {
   const handleDelete = async (roomId: number, reservationId: string) => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/rooms/${roomId}/reservations/${reservationId}`
+        `${baseURL}/api/rooms/${roomId}/reservations/${reservationId}`
       );
       alert("예약을 삭제했습니다.");
       fetchData();

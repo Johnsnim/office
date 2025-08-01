@@ -19,6 +19,7 @@ interface Room {
 }
 
 const Main: React.FC = () => {
+  const baseURL = process.env.REACT_APP_API_BASE_URL;
   const navigate = useNavigate();
 
   const [rooms, setRooms] = useState<Room[]>([]);
@@ -31,7 +32,7 @@ const Main: React.FC = () => {
     }
 
     axios
-      .get("http://localhost:5000/api/rooms")
+      .get(`${baseURL}/api/rooms`)
       .then((res) => setRooms(res.data))
       .catch((err) => console.error(err));
   }, []);
