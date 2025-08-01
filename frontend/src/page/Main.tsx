@@ -32,7 +32,7 @@ const Main: React.FC = () => {
     }
 
     axios
-      .get(`${baseURL}/api/rooms`)
+      .get(`https://office-backend-qcni.onrender.com/api/rooms`)
       .then((res) => setRooms(res.data))
       .catch((err) => console.error(err));
   }, []);
