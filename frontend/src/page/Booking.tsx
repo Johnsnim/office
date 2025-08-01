@@ -125,18 +125,24 @@ const Booking: React.FC = () => {
     );
 
     try {
-      await axios.post(`${baseURL}/api/rooms/${roomId}/reserve`, {
-        start: start.toISOString(),
-        end: end.toISOString(),
-        title: meetingTitle,
-        user: userName,
-      });
+      await axios.post(
+        `https://office-backend-qcni.onrender.com
+/api/rooms/${roomId}/reserve`,
+        {
+          start: start.toISOString(),
+          end: end.toISOString(),
+          title: meetingTitle,
+          user: userName,
+        }
+      );
 
       alert("예약이 완료되었습니다!");
       setSelectedSlots([]);
       setMeetingTitle("");
 
-      const res = await axios.get(`${baseURL}/api/rooms/${roomId}`);
+      const res = await axios.get(
+        `https://office-backend-qcni.onrender.com/api/rooms/${roomId}`
+      );
       setRoom(res.data);
       updateDisabledSlots(res.data.reservations, selectedDate);
     } catch (error) {
@@ -148,10 +154,12 @@ const Booking: React.FC = () => {
   useEffect(() => {
     if (!roomId) return;
 
-    axios.get(`${baseURL}/api/rooms/${roomId}`).then((res) => {
-      setRoom(res.data);
-      updateDisabledSlots(res.data.reservations, selectedDate);
-    });
+    axios
+      .get(`https://office-backend-qcni.onrender.com/api/rooms/${roomId}`)
+      .then((res) => {
+        setRoom(res.data);
+        updateDisabledSlots(res.data.reservations, selectedDate);
+      });
   }, [roomId]);
 
   useEffect(() => {

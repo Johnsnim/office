@@ -28,7 +28,8 @@ const Admin: React.FC = () => {
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
 
   const fetchData = async () => {
-    const res = await axios.get(`${baseURL}/api/rooms`);
+    const res = await axios.get(`https://office-backend-qcni.onrender.com
+api/rooms`);
     setRooms(res.data);
     if (res.data.length > 0) {
       setSelectedRoomId(res.data[0]._id);
@@ -38,7 +39,9 @@ const Admin: React.FC = () => {
 
   const handleDelete = async (roomId: number, reservationId: string) => {
     try {
-      await axios.delete(`${baseURL}/${roomId}/reservations/${reservationId}`);
+      await axios.delete(
+        `https://office-backend-qcni.onrender.com/${roomId}/reservations/${reservationId}`
+      );
       alert("예약 삭제 완료!");
       fetchData();
     } catch (err) {

@@ -27,7 +27,9 @@ const MyPage: React.FC = () => {
   const currentUserName = storedUser ? JSON.parse(storedUser).name : "";
 
   const fetchData = async () => {
-    const res = await axios.get(`${baseURL}/api/rooms`);
+    const res = await axios.get(
+      `https://office-backend-qcni.onrender.com/api/rooms`
+    );
     setRooms(res.data);
     if (res.data.length > 0) {
       setSelectedRoomId(res.data[0]._id);
@@ -38,7 +40,7 @@ const MyPage: React.FC = () => {
   const handleDelete = async (roomId: number, reservationId: string) => {
     try {
       await axios.delete(
-        `${baseURL}/api/rooms/${roomId}/reservations/${reservationId}`
+        `https://office-backend-qcni.onrender.com/api/rooms/${roomId}/reservations/${reservationId}`
       );
       alert("예약을 삭제했습니다.");
       fetchData();
